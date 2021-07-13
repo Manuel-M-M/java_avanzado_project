@@ -16,7 +16,6 @@ import javax.ws.rs.core.Response;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.domain.Electrico;
-import com.example.demo.domain.Hibrido;
 import com.example.demo.service.ElectricoService;
 
 @Path("/electrico")
@@ -39,46 +38,49 @@ public class ElectricoController {
         return electricoService.findAll();
     }
     
-//    /**
-//	 * GET http://localhost:8080/api/electrico/Audi
-//	 * GET http://localhost:8080/api/electrico/Mercedes
-//	 * GET http://localhost:8080/api/electrico/Honda
-//	 */
-//    @GET
-//    public List<Electrico> findByNombre(String nombre){
-//        return electricoService.findByNombre();
-//    }
-//    
-//    /**
-//	 * GET http://localhost:8080/api/electrico/M
-//	 * GET http://localhost:8080/api/electrico/G
-//	 * GET http://localhost:8080/api/electrico/V
-//	 */
-//    @GET
-//    public List<Electrico> findByType(String type){
-//        return electricoService.findByType();
-//    }
-//    
-//    /**
-//	 * GET http://localhost:8080/api/electrico/cian
-//	 * GET http://localhost:8080/api/electrico/morado
-//	 * GET http://localhost:8080/api/electrico/plata
-//	 */
-//    @GET
-//    public List<Electrico> findByColor(String color){
-//        return electricoService.findByColor();
-//    }
-//    
-//    /**
-//	 * GET http://localhost:8080/api/electrico/puertas/3
-//	 * GET http://localhost:8080/api/electrico/puertas/5
-//	 * GET http://localhost:8080/api/electrico/puertas/6
-//	 */
-//    @Path("/puertas")
-//    @GET
-//    public List<Electrico> findByPuertas(int puertas){
-//        return electricoService.findByPuertas();
-//    }
+    /**
+	 * GET http://localhost:8080/api/electrico/Audi
+	 * GET http://localhost:8080/api/electrico/Mercedes
+	 * GET http://localhost:8080/api/electrico/Honda
+	 */
+    @Path("{nombre}")
+    @GET
+    public List<Electrico> findByNombre(@PathParam("nombre")String nombre){
+        return electricoService.findByNombre(nombre);
+    }
+    
+    /**
+	 * GET http://localhost:8080/api/electrico/M
+	 * GET http://localhost:8080/api/electrico/G
+	 * GET http://localhost:8080/api/electrico/V
+	 */
+    @Path("{type}")
+    @GET
+    public List<Electrico> findByType(@PathParam("type")String type){
+        return electricoService.findByType(type);
+    }
+    
+    /**
+	 * GET http://localhost:8080/api/electrico/cian
+	 * GET http://localhost:8080/api/electrico/morado
+	 * GET http://localhost:8080/api/electrico/plata
+	 */
+    @Path("{color}")
+    @GET
+    public List<Electrico> findByColor(@PathParam("color")String color){
+        return electricoService.findByColor(color);
+    }
+    
+    /**
+	 * GET http://localhost:8080/api/electrico/puertas/3
+	 * GET http://localhost:8080/api/electrico/puertas/5
+	 * GET http://localhost:8080/api/electrico/puertas/6
+	 */
+    @Path("/puertas/{puertas}")
+    @GET
+    public List<Electrico> findByPuertas(@PathParam("puertas")int puertas){
+        return electricoService.findByPuertas(puertas);
+    }
 
     /**
      * GET

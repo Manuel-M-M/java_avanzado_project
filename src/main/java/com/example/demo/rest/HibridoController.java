@@ -38,46 +38,49 @@ public class HibridoController {
         return hibridoService.findAll();
     }
     
-//    /**
-//	 * GET http://localhost:8080/api/hibrido/Audi
-//	 * GET http://localhost:8080/api/hibrido/Mercedes
-//	 * GET http://localhost:8080/api/hibrido/Honda
-//	 */
-//    @GET
-//    public List<Hibrido> findByNombre(String nombre){
-//        return hibridoService.findByNombre();
-//    }
-//    
-//    /**
-//	 * GET http://localhost:8080/api/hibrido/M
-//	 * GET http://localhost:8080/api/hibrido/G
-//	 * GET http://localhost:8080/api/hibrido/V
-//	 */
-//    @GET
-//    public List<Hibrido> findByType(String type){
-//        return hibridoService.findByType();
-//    }
-//    
-//    /**
-//	 * GET http://localhost:8080/api/hibrido/cian
-//	 * GET http://localhost:8080/api/hibrido/morado
-//	 * GET http://localhost:8080/api/hibrido/plata
-//	 */
-//    @GET
-//    public List<Hibrido> findByColor(String color){
-//        return hibridoService.findByColor();
-//    }
-//    
-//    /**
-//	 * GET http://localhost:8080/api/hibrido/puertas/3
-//	 * GET http://localhost:8080/api/hibrido/puertas/5
-//	 * GET http://localhost:8080/api/hibrido/puertas/6
-//	 */
-//    @Path("/puertas")
-//    @GET
-//    public List<Hibrido> findByPuertas(int puertas){
-//        return hibridoService.findByPuertas();
-//    }
+    /**
+	 * GET http://localhost:8080/api/hibrido/Audi
+	 * GET http://localhost:8080/api/hibrido/Mercedes
+	 * GET http://localhost:8080/api/hibrido/Honda
+	 */
+    @Path("{nombre}")
+    @GET
+    public List<Hibrido> findByNombre(@PathParam("nombre")String nombre){
+        return hibridoService.findByNombre(nombre);
+    }
+    
+    /**
+	 * GET http://localhost:8080/api/hibrido/M
+	 * GET http://localhost:8080/api/hibrido/G
+	 * GET http://localhost:8080/api/hibrido/V
+	 */
+    @Path("{type}")
+    @GET
+    public List<Hibrido> findByType(@PathParam("type")String type){
+        return hibridoService.findByType(type);
+    }
+    
+    /**
+	 * GET http://localhost:8080/api/hibrido/cian
+	 * GET http://localhost:8080/api/hibrido/morado
+	 * GET http://localhost:8080/api/hibrido/plata
+	 */
+    @Path("{color}")
+    @GET
+    public List<Hibrido> findByColor(@PathParam("color")String color){
+        return hibridoService.findByColor(color);
+    }
+    
+    /**
+	 * GET http://localhost:8080/api/hibrido/puertas/3
+	 * GET http://localhost:8080/api/hibrido/puertas/5
+	 * GET http://localhost:8080/api/hibrido/puertas/6
+	 */
+    @Path("/puertas/{puertas}")
+    @GET
+    public List<Hibrido> findByPuertas(@PathParam("puertas")int puertas){
+        return hibridoService.findByPuertas(puertas);
+    }
 
     /**
      * GET
