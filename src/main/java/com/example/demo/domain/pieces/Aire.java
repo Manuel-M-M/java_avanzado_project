@@ -3,15 +3,15 @@ package com.example.demo.domain.pieces;
 public class Aire {
 	
 	private Long id;
-	private Boolean on = false;
+	private Boolean on = true;
 	
 	public Aire(Long id) {
 		super();
 		this.id = id;
 	}
 	
-	public void start() {
-		this.on = true;
+	public void stop() {
+		this.on = false;
 	}
 
 	
@@ -34,6 +34,11 @@ public class Aire {
 	@Override
 	public String toString() {
 		return "Aire [id=" + id + ", on=" + on + "]";
+	}
+
+	public void start() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

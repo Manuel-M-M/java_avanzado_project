@@ -10,7 +10,7 @@ public class Bateria {
 		this.id = id;
 	}
 	
-	public void start() {
+	public void stop() {
 		this.on = true;
 	}
 
@@ -27,13 +27,18 @@ public class Bateria {
 		return on;
 	}
 
-	public void setOff(Boolean off) {
-		this.on = off;
+	public void setOff(Boolean on) {
+		this.on = on;
 	}
 
 	@Override
 	public String toString() {
-		return "Bateria [id=" + id + ", off=" + on + "]";
+		return "Bateria [id=" + id + ", on=" + on + "]";
+	}
+
+	public void start() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

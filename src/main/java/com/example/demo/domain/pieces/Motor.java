@@ -3,7 +3,7 @@ package com.example.demo.domain.pieces;
 public class Motor {
 
 	private Long id;
-	private Boolean on = false;
+	private Boolean on = true;
 	
 	public Motor(Long id) {
 		super();
@@ -11,7 +11,7 @@ public class Motor {
 	}
 	
 	public void start() {
-		this.on = true;
+		this.on = false;
 	}
 
 	

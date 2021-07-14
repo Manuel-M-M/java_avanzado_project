@@ -44,7 +44,7 @@ public class GasolinaController {
 	 * GET http://localhost:8080/api/gasolina/Mercedes
 	 * GET http://localhost:8080/api/gasolina/Honda
 	 */
-    @Path("{nombre}")
+    @Path("/nombre/{nombre}")
     @GET
     public List<Gasolina> findByNombre(@PathParam("nombre")String nombre){
         return gasolinaService.findByNombre(nombre);
@@ -55,7 +55,7 @@ public class GasolinaController {
 	 * GET http://localhost:8080/api/gasolina/G
 	 * GET http://localhost:8080/api/gasolina/V
 	 */
-    @Path("{typo}")
+    @Path("/type/{type}")
     @GET
     public List<Gasolina> findByType(@PathParam("type")String type){
         return gasolinaService.findByType(type);
@@ -66,7 +66,7 @@ public class GasolinaController {
 	 * GET http://localhost:8080/api/gasolina/morado
 	 * GET http://localhost:8080/api/gasolina/plata
 	 */
-    @Path("{color}")
+    @Path("/color/{color}")
     @GET
     public List<Gasolina> findByColor(@PathParam("color")String color){
         return gasolinaService.findByColor(color);

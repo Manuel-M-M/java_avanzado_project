@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.domain.Electrico;
 import com.example.demo.domain.Gasolina;
 import com.example.demo.domain.pieces.Aire;
 import com.example.demo.domain.pieces.Bateria;
@@ -107,22 +108,38 @@ public class GasolinaServiceImpl implements GasolinaService {
 
 	@Override
 	public List<Gasolina> findByNombre(String nombre) {
-		return new ArrayList<>(gasolinas.values());
+		List<Gasolina> results = new ArrayList<Gasolina>();
+		for(Gasolina gasolina : gasolinas.values())
+			if(gasolina.getNombre().equals(nombre))
+				results.add(gasolina);
+		return results;
 	}
 
 	@Override
 	public List<Gasolina> findByType(String type) {
-		return new ArrayList<>(gasolinas.values());
+		List<Gasolina> results = new ArrayList<Gasolina>();
+		for(Gasolina gasolina : gasolinas.values())
+			if(gasolina.getType().equals(type))
+				results.add(gasolina);
+		return results;
 	}
 
 	@Override
 	public List<Gasolina> findByColor(String color) {
-		return new ArrayList<>(gasolinas.values());
+		List<Gasolina> results = new ArrayList<Gasolina>();
+		for(Gasolina gasolina : gasolinas.values())
+			if(gasolina.getColor().equals(color))
+				results.add(gasolina);
+		return results;
 	}
 
 	@Override
 	public List<Gasolina> findByPuertas(int puertas) {
-		return new ArrayList<>(gasolinas.values());
+		List<Gasolina> results = new ArrayList<Gasolina>();
+		for(Gasolina gasolina : gasolinas.values())
+			if(gasolina.getPuertas() == puertas)
+				results.add(gasolina);
+		return results;
 	}
 	
 }

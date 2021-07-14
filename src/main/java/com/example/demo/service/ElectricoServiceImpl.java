@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
@@ -108,22 +109,38 @@ public class ElectricoServiceImpl implements ElectricoService {
 
 	@Override
 	public List<Electrico> findByNombre(String nombre) {
-		return new ArrayList<>(electricos.values());
+		List<Electrico> results = new ArrayList<Electrico>();
+		for(Electrico electrico : electricos.values())
+			if(electrico.getNombre().equals(nombre))
+				results.add(electrico);
+		return results;
 	}
 
 	@Override
 	public List<Electrico> findByType(String type) {
-		return new ArrayList<>(electricos.values());
+		List<Electrico> results = new ArrayList<Electrico>();
+		for(Electrico electrico : electricos.values())
+			if(electrico.getType().equals(type))
+				results.add(electrico);
+		return results;
 	}
 
 	@Override
 	public List<Electrico> findByColor(String color) {
-		return new ArrayList<>(electricos.values());
+		List<Electrico> results = new ArrayList<Electrico>();
+		for(Electrico electrico : electricos.values())
+			if(electrico.getColor().equals(color))
+				results.add(electrico);
+		return results;
 	}
 
 	@Override
 	public List<Electrico> findByPuertas(int puertas) {
-		return new ArrayList<>(electricos.values());
+		List<Electrico> results = new ArrayList<Electrico>();
+		for(Electrico electrico : electricos.values())
+			if(electrico.getPuertas() == puertas)
+				results.add(electrico);
+		return results;
 	}
     	
 }

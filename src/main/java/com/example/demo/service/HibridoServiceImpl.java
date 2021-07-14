@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.domain.Gasolina;
 import com.example.demo.domain.Hibrido;
 import com.example.demo.domain.pieces.Aire;
 import com.example.demo.domain.pieces.Bateria;
@@ -107,22 +108,38 @@ public class HibridoServiceImpl  implements HibridoService{
 
 	@Override
 	public List<Hibrido> findByNombre(String nombre) {
-		return new ArrayList<>(hibridos.values());
+		List<Hibrido> results = new ArrayList<Hibrido>();
+		for(Hibrido hibrido : hibridos.values())
+			if(hibrido.getNombre().equals(nombre))
+				results.add(hibrido);
+		return results;
 	}
 
 	@Override
 	public List<Hibrido> findByType(String type) {
-		return new ArrayList<>(hibridos.values());
+		List<Hibrido> results = new ArrayList<Hibrido>();
+		for(Hibrido hibrido : hibridos.values())
+			if(hibrido.getType().equals(type))
+				results.add(hibrido);
+		return results;
 	}
 
 	@Override
 	public List<Hibrido> findByColor(String color) {
-		return new ArrayList<>(hibridos.values());
+		List<Hibrido> results = new ArrayList<Hibrido>();
+		for(Hibrido hibrido : hibridos.values())
+			if(hibrido.getColor().equals(color))
+				results.add(hibrido);
+		return results;
 	}
 
 	@Override
 	public List<Hibrido> findByPuertas(int puertas) {
-		return new ArrayList<>(hibridos.values());
+		List<Hibrido> results = new ArrayList<Hibrido>();
+		for(Hibrido hibrido : hibridos.values())
+			if(hibrido.getPuertas() == puertas)
+				results.add(hibrido);
+		return results;
 	}
 	
 }

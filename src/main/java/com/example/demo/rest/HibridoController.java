@@ -39,11 +39,11 @@ public class HibridoController {
     }
     
     /**
-	 * GET http://localhost:8080/api/hibrido/Audi
+	 * GET http://localhost:8080/api/hibrido/nombre/Audi
 	 * GET http://localhost:8080/api/hibrido/Mercedes
 	 * GET http://localhost:8080/api/hibrido/Honda
 	 */
-    @Path("{nombre}")
+    @Path("/nombre/{nombre}")
     @GET
     public List<Hibrido> findByNombre(@PathParam("nombre")String nombre){
         return hibridoService.findByNombre(nombre);
@@ -54,7 +54,7 @@ public class HibridoController {
 	 * GET http://localhost:8080/api/hibrido/G
 	 * GET http://localhost:8080/api/hibrido/V
 	 */
-    @Path("{type}")
+    @Path("/type/{type}")
     @GET
     public List<Hibrido> findByType(@PathParam("type")String type){
         return hibridoService.findByType(type);
@@ -65,7 +65,7 @@ public class HibridoController {
 	 * GET http://localhost:8080/api/hibrido/morado
 	 * GET http://localhost:8080/api/hibrido/plata
 	 */
-    @Path("{color}")
+    @Path("/color/{color}")
     @GET
     public List<Hibrido> findByColor(@PathParam("color")String color){
         return hibridoService.findByColor(color);

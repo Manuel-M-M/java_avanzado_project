@@ -31,7 +31,7 @@ public class ElectricoController {
 	}
 	
 	/**
-	 * GET http://localhost:8080/api/smartphone
+	 * GET http://localhost:8080/api/electrico
 	 */
     @GET
     public List<Electrico> findAll(){
@@ -39,33 +39,33 @@ public class ElectricoController {
     }
     
     /**
-	 * GET http://localhost:8080/api/electrico/Audi
-	 * GET http://localhost:8080/api/electrico/Mercedes
-	 * GET http://localhost:8080/api/electrico/Honda
+	 * GET http://localhost:8080/api/electrico/nombre/Audi
+	 * GET http://localhost:8080/api/electrico/nombre/Mercedes
+	 * GET http://localhost:8080/api/electrico/nombre/Honda
 	 */
-    @Path("{nombre}")
+    @Path("/nombre/{nombre}")
     @GET
     public List<Electrico> findByNombre(@PathParam("nombre")String nombre){
         return electricoService.findByNombre(nombre);
     }
     
     /**
-	 * GET http://localhost:8080/api/electrico/M
-	 * GET http://localhost:8080/api/electrico/G
-	 * GET http://localhost:8080/api/electrico/V
+	 * GET http://localhost:8080/api/electrico/type/M
+	 * GET http://localhost:8080/api/electrico/type/G
+	 * GET http://localhost:8080/api/electrico/type/V
 	 */
-    @Path("{type}")
+    @Path("/type/{type}")
     @GET
     public List<Electrico> findByType(@PathParam("type")String type){
         return electricoService.findByType(type);
     }
     
     /**
-	 * GET http://localhost:8080/api/electrico/cian
-	 * GET http://localhost:8080/api/electrico/morado
-	 * GET http://localhost:8080/api/electrico/plata
+	 * GET http://localhost:8080/api/electrico/color/cian
+	 * GET http://localhost:8080/api/electrico/color/morado
+	 * GET http://localhost:8080/api/electrico/color/plata
 	 */
-    @Path("{color}")
+    @Path("/color/{color}")
     @GET
     public List<Electrico> findByColor(@PathParam("color")String color){
         return electricoService.findByColor(color);
@@ -86,6 +86,7 @@ public class ElectricoController {
      * GET
      * http://localhost:8080/api/electrico/1
      * http://localhost:8080/api/electrico/2
+     * http://localhost:8080/api/electrico/3
      */
     @GET
     @Path("{id}")
